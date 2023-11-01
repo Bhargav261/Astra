@@ -20,7 +20,6 @@ code {
 .react-grid-item {
   transition: all 200ms ease;
   transition-property: left, top;
-  background: rgba(0, 132, 255, 0.473);
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 }
@@ -86,6 +85,11 @@ code {
   border: none !important;
 }
 
+.dropdown-toggle {
+  background: transparent !important;
+  border: transparent !important;
+}
+
 .settingIcon {
   width: 15px;
   height: 15px;
@@ -99,4 +103,37 @@ code {
 
 .dropdown-menu.show {
   transform: translate3d(-9.8px, 35px, 0px) !important
+}
+
+.formLabel {
+  font-size: 13px;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: transparent !important;
+  color: black !important
+}
+
+.chartTitle {
+  position: absolute !important;
+  z-index: 1;
+  font-size: 1.2em;
+  color: rgb(51, 51, 51);
+  font-weight: bold;
+  fill: rgb(51, 51, 51);
+  width: 100%;
+  cursor: move;
+}
+
+.highcharts-title {
+  visibility: hidden;
+}
+
+.dropMenuItem {
+  padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+}
+
+.chartBorder {
+  border: 1px solid rgba(0, 132, 255, 0.473);
 }

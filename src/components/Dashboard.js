@@ -1,14 +1,16 @@
 import BarChart from "./Charts/BarChart";
-import ScaterChart from "./Charts/ScaterChart";
+import ScatterChart from "./Charts/ScatterChart";
 import React, { useState, useEffect } from "react";
 import BoxWhiskerPlot from "./Charts/BoxWhiskerPlot";
 import AreaRangeChart from "./Charts/AreaRangeChart";
 import RGL, { WidthProvider } from "react-grid-layout";
 
+import { useSelector } from 'react-redux';
+
 const ReactGridLayout = WidthProvider(RGL);
 
 const Dashboard = () => {
-    
+
     const defaultProps = {
         isDraggable: true,
         isResizable: true,
@@ -22,7 +24,7 @@ const Dashboard = () => {
     const [layout, setLayout] = useState([
         { w: 8, h: 11, x: 0, y: 0, i: "barchart" },
         { w: 4, h: 11, x: 8, y: 0, i: "areachart" },
-        { w: 4, h: 11, x: 8, y: 0, i: "scaterchart" },
+        { w: 4, h: 11, x: 8, y: 0, i: "scatterchart" },
         { w: 8, h: 11, x: 0, y: 0, i: "boxchart" },
     ]);
 
@@ -47,25 +49,36 @@ const Dashboard = () => {
         };
     }, [layout, defaultProps.rowHeight]);
 
+    const { layouts, value, userData, pendingState, chartList } = useSelector(state => state.home);
+
     return (
         <>
-            <ReactGridLayout onLayoutChange={newLayout => setLayout(newLayout)} {...defaultProps} onBreakpointChange={handleBreakpointChange} width={gridWidth}>
-                {layout.map(item => (
-                    <div key={item.i} data-grid={item} style={{ height: `${gridHeight}px`, width: `${(gridWidth / defaultProps.cols) * item.w}px` }}>
-                        {item.i === "barchart" && (
-                            <BarChart />
-                        )}
-                        {item.i === "areachart" && (
-                            <AreaRangeChart />
-                        )}
-                        {item.i === "scaterchart" && (
-                            <ScaterChart />
-                        )}
-                        {item.i === "boxchart" && (
-                            <BoxWhiskerPlot />
-                        )}
-                    </div>
-                ))}
+            <ReactGridLayout 
+            onLayoutChange={newLayout => setLayout(newLayout)} {...defaultProps} onBreakpointChange={handleBreakpointChange} width={gridWidth}
+            draggableHandle=".dragMe"
+            >
+                {layouts.map(item => {
+
+                    const { i, w, h, x, y, key } = item || {};
+                    const { type, title } = chartList[key] || {};
+
+                    return (
+                        <div className="chartBorder" key={i} data-grid={item} style={{ height: `${gridHeight}px`, width: `${(gridWidth / defaultProps.cols) * w}px` }}>
+                            {type === "bar" && (
+                                <BarChart title={title} type={type} chartKey={key} />
+                            )}
+                            {type === "arearange" && (
+                                <AreaRangeChart title={title} type={type} chartKey={key}/>
+                            )}
+                            {type === "scatter" && (
+                                <ScatterChart title={title} type={type} chartKey={key}/>
+                            )}
+                            {type === "boxplot" && (
+                                <BoxWhiskerPlot title={title} type={type} chartKey={key} />
+                            )}
+                        </div>
+                    )
+                })}
             </ReactGridLayout>
         </>
     );
