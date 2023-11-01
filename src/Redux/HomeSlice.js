@@ -3,9 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 export const slice = createSlice({
     name: 'Daynamic Dashboard',
     initialState: {
-        value: 10,
-        userData: [],
-        pendingState: false,
         chartList: {
             barchart: {
                 key: 'barchart',
@@ -28,20 +25,8 @@ export const slice = createSlice({
                 title: 'Chart 4'
             }
         },
-        layouts: [
-            { w: 8, h: 11, x: 0, y: 0, i: "barchart", key: "barchart" },
-            { w: 4, h: 11, x: 8, y: 0, i: "areachart", key: "areachart" },
-            { w: 4, h: 11, x: 8, y: 0, i: "scatterchart", key: "scatterchart" },
-            { w: 8, h: 11, x: 0, y: 0, i: "boxchart", key: "boxchart" },
-        ],
     },
     reducers: {
-        increment: state => {
-            state.value += 1;
-        },
-        decrement: state => {
-            state.value -= 1;
-        },
         updateTitle: (state, action) => {
             const { title, chart } = action.payload;
             state.chartList[chart].title = title
