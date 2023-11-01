@@ -54,7 +54,7 @@ const SettingMenu = ({ chartKey, title, type }) => {
                     <select className="form-control" value={type} onChange={handleChangeType} onClick={(e) => e.stopPropagation()}>
                         <option value="bar">Bar Chart</option>
                         <option value="boxplot">Box Whisker Chart</option>
-                        <option value="arearange">Area Chart</option>
+                        <option value="area">Area Chart</option>
                         <option value="scatter">Scatter Chart</option>
                     </select>
                 </div>
@@ -82,7 +82,7 @@ const SettingMenu = ({ chartKey, title, type }) => {
                         <select className="form-control" value={type} onChange={handleChangeType}>
                             <option value="bar">Bar Chart</option>
                             <option value="boxplot">Box Whisker Chart</option>
-                            <option value="arearange">Area Chart</option>
+                            <option value="area">Area Chart</option>
                             <option value="scatter">Scatter Chart</option>
                         </select>
                     </div>
@@ -111,7 +111,7 @@ const SettingMenu = ({ chartKey, title, type }) => {
                         <select className="form-control" value={type} onChange={handleChangeType}   onClick={(e) => e.stopPropagation()}>
                             <option value="bar">Bar Chart</option>
                             <option value="boxplot">Box Whisker Chart</option>
-                            <option value="arearange">Area Chart</option>
+                            <option value="area">Area Chart</option>
                             <option value="scatter">Scatter Chart</option>
                         </select>
                     </Dropdown.Item>

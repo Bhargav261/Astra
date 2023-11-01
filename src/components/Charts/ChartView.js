@@ -10,7 +10,7 @@ const ChartView = ({ title, type, chartKey }) => {
             {type === "bar" && (
                 <BarChart title={title} type={type} chartKey={chartKey} />
             )}
-            {type === "arearange" && (
+            {type === "area" && (
                 <AreaRangeChart title={title} type={type} chartKey={chartKey} />
             )}
             {type === "scatter" && (

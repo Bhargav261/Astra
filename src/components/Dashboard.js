@@ -1,9 +1,9 @@
-import Navbar from './Navbar';
 import { useSelector } from 'react-redux';
 import ChartView from './Charts/ChartView';
+import { findBreakPoint } from './Service';
 import React, { useState, useEffect } from "react";
 import RGL, { WidthProvider } from "react-grid-layout";
-import Footer from './Footer';
+import { layoutConfig } from './layoutConfig';
 
 const ReactGridLayout = WidthProvider(RGL);
 
@@ -11,11 +11,13 @@ const Dashboard = () => {
 
     const defaultProps = {
         isDraggable: true,
+        isRearrangeable: true,
         isResizable: true,
         items: 5,
         rowHeight: 30,
         preventCollision: false,
-        cols: 12,
+        // cols: 12,
+        draggableHandle: ".grid-item__title",
         breakpoints: { lg: 1280, md: 992, sm: 767, xs: 480, xxs: 0 },
     };
     const { chartList } = useSelector(state => state.home);
@@ -28,32 +30,44 @@ const Dashboard = () => {
     ]);
     const [gridWidth, setGridWidth] = useState(window.innerWidth);
     const [gridHeight, setGridHeight] = useState(defaultProps.rowHeight * layout[0].h);
+    const [currentBreakpoint, setCurrentBreakpoint] = useState(null);
+
+    useEffect(()=>{
+        handleResize();
+    },[])
 
     useEffect(() => {
-        if (layout && layout?.length) {
-            function handleResize() {
-                setGridWidth(window.innerWidth);
-                setGridHeight(defaultProps.rowHeight * layout[0].h);
-            }
-
-            window.addEventListener("resize", handleResize);
-
-            return () => {
-                window.removeEventListener("resize", handleResize);
-            };
+        if (currentBreakpoint) {
+            setLayout(layoutConfig[currentBreakpoint])
         }
+    }, [currentBreakpoint])
+
+    useEffect(() => {
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
     }, [layout, defaultProps.rowHeight]);
 
-    const handleBreakpointChange = (newBreakpoint, newCols) => {
-        console.log(`Breakpoint changed to ${newBreakpoint}`);
-        console.log(`Number of columns: ${newCols}`);
-    };
+    const handleResize = () => {
+        setGridWidth(window.innerWidth);
+        setGridHeight(defaultProps.rowHeight * layout[0].h);
+
+        const windowWidth = window.innerWidth;
+        const breakpoint = findBreakPoint({ windowWidth, breakpoints: defaultProps.breakpoints });
+
+        setCurrentBreakpoint(breakpoint);
+
+    }
 
     return (
         <>
             <div className='chartDispaly'>
                 <ReactGridLayout
-                    onLayoutChange={newLayout => setLayout(newLayout)} {...defaultProps} onBreakpointChange={handleBreakpointChange} width={gridWidth}
+                    onLayoutChange={newLayout => setLayout(newLayout)}
+                    {...defaultProps}
+                    width={gridWidth}
                     draggableHandle=".dragMe"
                 >
                     {layout?.length && layout.map((item) => {

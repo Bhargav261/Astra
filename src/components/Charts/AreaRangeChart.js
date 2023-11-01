@@ -11,14 +11,11 @@ const AreaRangeChart = ({ chartKey, title, type }) => {
 
     const areachartOptions = {
         chart: {
-            type: "arearange",
+            type: "area",
         },
         title: {
             text: "-",
         },
-        // subtitle: {
-        //     text: "A range chart that displays a range between a lower and higher value for each point.",
-        // },
         yAxis: {
             title: {
                 text: "Values",
@@ -42,7 +39,7 @@ const AreaRangeChart = ({ chartKey, title, type }) => {
         ],
 
     }
-
+    
     return (
         <>
             <ChartTitle title={title} />

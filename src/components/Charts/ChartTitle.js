@@ -4,7 +4,7 @@ const ChartTitle = ({ title }) => {
     return (
         <>
         <div className="dragMe chartTitle">
-            {title}
+            {title || 'Chart Title'}
         </div>
         </>
     )

@@ -7,22 +7,22 @@ export const slice = createSlice({
             barchart: {
                 key: 'barchart',
                 type: 'bar',
-                title: 'Chart 1'
+                title: 'Oil Sell Chart'
             },
             areachart: {
                 key: 'areachart',
-                type: "arearange",
-                title: 'Chart 2'
+                type: "area",
+                title: 'Gas Sell Chart'
             },
             boxchart: {
                 key: 'boxchart',
                 type: "boxplot",
-                title: 'Chart 3'
+                title: 'Experiment Chart'
             },
             scatterchart: {
                 key: 'scatterchart',
                 type: 'scatter',
-                title: 'Chart 4'
+                title: 'Olympics Data'
             }
         },
     },
