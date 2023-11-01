@@ -74,7 +74,6 @@ const BarChart = ({ chartKey, title, type }) => {
         }]
     }
 
-
     return (
         <>
             <ChartTitle title={title} />

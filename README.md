@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Dynamic Dashboard Using highcharts and react-grid-layout
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Develop a dynamic dashboard that allows a user to select different chart types from a dropdown list.
+utilize Highcharts for the charts and React-Grid-Layout for the grid layout. Each chart should be a
+functional component that can be dragged, dropped, and resized.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+This project offers the following key features:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* User-Friendly Interface:
+    * An intuitive and user-friendly interface that makes it easy to interact with the application
+* Customizable Char:
+    * The flexibility to change the chart title to suit your needs
+* Chart Type Selection:
+    * Options to select different chart types based on your data visualization requirements
+* Grid Position Control:
+    * Intuitive drag-and-drop functionality for repositioning the grid anywhere on the screen
+* Grid Resizing:
+    * Support for resizing the grid to accommodate various display sizes
+* Responsive Design:
+    * Ensures a seamless viewing experience on different screen sizes and devices
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Live Application URL
 
-### `npm test`
+### https://dynamicdashboardanimo.netlify.app
+This URL has the application deployed in
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Prerequisites
 
-### `npm run build`
+### Install Node JS
+Refer to https://nodejs.org/en/ to install nodejs
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Install create-react-app
+Install the create-react-app npm package globally. This will help to easily run the project and also build the source files easily. Use the following command to install create-react-app
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install -g create-react-app
+```
+## Live Application URL
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The Application is deployed at https://dynamicdashboardanimo.netlify.app
 
-### `npm run eject`
+Click on the link to see the application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Cloning and Running the Application in local
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Clone the project into a local
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Install all the npm packages. Go into the project folder and type the following command to install all npm packages
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install
+```
 
-## Learn More
+To run the application Type the following command
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The Application Runs on **localhost:3000**
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To build the application Type the following command
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm run build
+```
