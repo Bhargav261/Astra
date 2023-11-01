@@ -1,13 +1,7 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-
-export const changeTitle = (data) => {
-    return data;
-}
+import { createSlice } from '@reduxjs/toolkit';
 
 export const slice = createSlice({
-    name: 'Home Page Counter',
+    name: 'Daynamic Dashboard',
     initialState: {
         value: 10,
         userData: [],
@@ -60,6 +54,6 @@ export const slice = createSlice({
     extraReducers: {}
 });
 
-export const { increment, decrement, updateTitle, updateType } = slice.actions;
+export const { updateTitle, updateType } = slice.actions;
 
 export default slice.reducer;
