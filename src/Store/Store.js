@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import homeReducer from '../Redux/HomeSlice';
+import dashboardReducer from '../Redux/DashboardSlice';
 
 export default configureStore({
     reducer: {
-        home: homeReducer,
+        dashboard: dashboardReducer,
     },
 });
 

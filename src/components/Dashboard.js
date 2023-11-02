@@ -20,7 +20,7 @@ const Dashboard = () => {
         draggableHandle: ".grid-item__title",
         breakpoints: { lg: 1280, md: 992, sm: 767, xs: 480, xxs: 0 },
     };
-    const { chartList } = useSelector(state => state.home);
+    const { chartList } = useSelector(state => state.dashboard);
 
     const [layout, setLayout] = useState([
         { w: 8, h: 11, x: 0, y: 0, i: "barchart" },
@@ -32,9 +32,9 @@ const Dashboard = () => {
     const [gridHeight, setGridHeight] = useState(defaultProps.rowHeight * layout[0].h);
     const [currentBreakpoint, setCurrentBreakpoint] = useState(null);
 
-    useEffect(()=>{
+    useEffect(() => {
         handleResize();
-    },[])
+    }, [])
 
     useEffect(() => {
         if (currentBreakpoint) {
